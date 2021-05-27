@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SubBoard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://BigBoard.gd" type="Script" id=2]
+
+[node name="BigBoard" type="GridContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubBoard0" parent="." instance=ExtResource( 1 )]
+margin_right = 44.0
+margin_bottom = 68.0
+
+[node name="SubBoard1" parent="." instance=ExtResource( 1 )]
+margin_left = 64.0
+margin_right = 108.0
+margin_bottom = 68.0
+
+[node name="SubBoard2" parent="." instance=ExtResource( 1 )]
+margin_left = 128.0
+margin_right = 172.0
+margin_bottom = 68.0
+
+[node name="SubBoard3" parent="." instance=ExtResource( 1 )]
+margin_top = 88.0
+margin_right = 44.0
+margin_bottom = 156.0
+
+[node name="SubBoard4" parent="." instance=ExtResource( 1 )]
+margin_left = 64.0
+margin_top = 88.0
+margin_right = 108.0
+margin_bottom = 156.0
+
+[node name="SubBoard5" parent="." instance=ExtResource( 1 )]
+margin_left = 128.0
+margin_top = 88.0
+margin_right = 172.0
+margin_bottom = 156.0
+
+[node name="SubBoard6" parent="." instance=ExtResource( 1 )]
+margin_top = 176.0
+margin_right = 44.0
+margin_bottom = 244.0
+
+[node name="SubBoard7" parent="." instance=ExtResource( 1 )]
+margin_left = 64.0
+margin_top = 176.0
+margin_right = 108.0
+margin_bottom = 244.0
+
+[node name="SubBoard8" parent="." instance=ExtResource( 1 )]
+margin_left = 128.0
+margin_top = 176.0
+margin_right = 172.0
+margin_bottom = 244.0
