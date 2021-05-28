@@ -2,15 +2,29 @@ extends GridContainer
 
 var state = 0	# 0 is active, 1 is p1 win, 2 is p2 win, 3 is draw
 var values = [0, 0, 0,  0, 0, 0,  0, 0, 0]
+var selected
 
 var big_board
 
+var theme_red
+var theme_blue
+
+
+func get_button(index):
+	return get_node("Button" + str(index))
 
 func press(index):
-	var button = get_node("Button" + str(index))
+	var button = get_button(index)
 	var turn = big_board.current_player
 	values[index] = turn
-	button.text = str(turn)
+	if turn == 1:
+		button.text = "X"
+		#button.font_color = Color(1, 0, 0, 1)
+		button.theme = theme_red
+	else: # turn == 2
+		button.text = "O"
+		#button.font_color = Color(0, 0, 1, 1)
+		button.theme = theme_blue
 	button.disabled = true
 	big_board.current_player = (turn % 2) + 1
 	calc_win()
@@ -45,32 +59,61 @@ func calc_win():
 			state = 3
 
 	if state != 0:
-		for i in range(9):
-			var button = get_node("Button" + str(i))
-			button.disabled = true
+		disable_board()
 		big_board.calc_win()
 
 func disable_board():
+	selected = false
 	for i in range(9):
-		var button = get_node("Button" + str(i))
+		var button = get_button(i)
 		button.disabled = true
+	update()
 
 func enable_board():
 	if state != 0:
 		return
+	selected = true
 	for i in range(9):
 		if values[i] == 0:
-			var button = get_node("Button" + str(i))
+			var button = get_button(i)
 			button.disabled = false
+	update()
 
 
 ## CALLBACKS ##
 
 func _ready():
 	big_board = get_parent()
+	selected = true
+
+	theme_red = Theme.new()
+	theme_red.set_color("font_color_disabled", "Button", Color(1, 0, 0, 1))
+	theme_blue = Theme.new()
+	theme_blue.set_color("font_color_disabled", "Button", Color(0, 0, 1, 1))
 
 #func _process(delta):
 #	pass
+
+func _draw():
+	if selected:
+		var margin = 6
+		var rect = Rect2(Vector2(-margin, -margin), rect_size + Vector2(2 * margin, 2 * margin))
+		var col = Color(1, 0, 0, 1) if big_board.current_player == 1 else Color(0, 0, 1, 1)
+		draw_rect(rect, col, false, 3)
+	if state != 0:
+		draw_rect(Rect2(Vector2(0, 0), rect_size), Color(1, 1, 1, 0.3), true)
+		var col
+		if state == 3:
+			col = Color(0, 1, 0, 1)
+		else:
+			col = Color(1, 0, 0, 1) if state == 1 else Color(0, 0, 1, 1)
+
+		if state == 1 or state == 3:
+			draw_line(Vector2(10, 10), rect_size - Vector2(10, 10), col, 5)
+			draw_line(Vector2(rect_size.x - 10, 10), Vector2(10, rect_size.y - 10), col, 5)
+		if state == 2 or state == 3:
+			draw_circle(rect_size / 2, rect_size.x / 2 - 10, col)
+
 
 
 ## SIGNALS ##

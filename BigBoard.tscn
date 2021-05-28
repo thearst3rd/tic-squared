@@ -15,49 +15,49 @@ __meta__ = {
 }
 
 [node name="SubBoard0" parent="." instance=ExtResource( 1 )]
-margin_right = 44.0
-margin_bottom = 68.0
+margin_right = 83.0
+margin_bottom = 83.0
 
 [node name="SubBoard1" parent="." instance=ExtResource( 1 )]
-margin_left = 64.0
-margin_right = 108.0
-margin_bottom = 68.0
+margin_left = 103.0
+margin_right = 186.0
+margin_bottom = 83.0
 
 [node name="SubBoard2" parent="." instance=ExtResource( 1 )]
-margin_left = 128.0
-margin_right = 172.0
-margin_bottom = 68.0
+margin_left = 206.0
+margin_right = 289.0
+margin_bottom = 83.0
 
 [node name="SubBoard3" parent="." instance=ExtResource( 1 )]
-margin_top = 88.0
-margin_right = 44.0
-margin_bottom = 156.0
+margin_top = 103.0
+margin_right = 83.0
+margin_bottom = 186.0
 
 [node name="SubBoard4" parent="." instance=ExtResource( 1 )]
-margin_left = 64.0
-margin_top = 88.0
-margin_right = 108.0
-margin_bottom = 156.0
+margin_left = 103.0
+margin_top = 103.0
+margin_right = 186.0
+margin_bottom = 186.0
 
 [node name="SubBoard5" parent="." instance=ExtResource( 1 )]
-margin_left = 128.0
-margin_top = 88.0
-margin_right = 172.0
-margin_bottom = 156.0
+margin_left = 206.0
+margin_top = 103.0
+margin_right = 289.0
+margin_bottom = 186.0
 
 [node name="SubBoard6" parent="." instance=ExtResource( 1 )]
-margin_top = 176.0
-margin_right = 44.0
-margin_bottom = 244.0
+margin_top = 206.0
+margin_right = 83.0
+margin_bottom = 289.0
 
 [node name="SubBoard7" parent="." instance=ExtResource( 1 )]
-margin_left = 64.0
-margin_top = 176.0
-margin_right = 108.0
-margin_bottom = 244.0
+margin_left = 103.0
+margin_top = 206.0
+margin_right = 186.0
+margin_bottom = 289.0
 
 [node name="SubBoard8" parent="." instance=ExtResource( 1 )]
-margin_left = 128.0
-margin_top = 176.0
-margin_right = 172.0
-margin_bottom = 244.0
+margin_left = 206.0
+margin_top = 206.0
+margin_right = 289.0
+margin_bottom = 289.0
